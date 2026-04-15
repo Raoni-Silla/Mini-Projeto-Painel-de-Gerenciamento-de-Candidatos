@@ -1,0 +1,13 @@
+<div class="formulario">
+    <input [(ngModel)]="nomeNovoCandidato" placeholder="Insira Seu Nome">
+    <button (click)="adicionarCandidato()">Adicionar</button>
+</div>
+
+<div *ngFor="let candidato of candidatos">
+    <app-cartao-candidato [candidato]="candidato"></app-cartao-candidato>
+</div>
+
+<div *ngIf="!candidatos.length" class="divVazia">
+    <h2>A lista está vazia</h2>
+    <p>Por favor, adicione candidatos a lista</p>
+</div>

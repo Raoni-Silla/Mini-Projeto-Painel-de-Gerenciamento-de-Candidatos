@@ -1,0 +1,9 @@
+<div>
+  <h4>{{ candidato.nome }}</h4>
+  <p *ngIf="candidato.aprovado; else reprovado">Candidato Aprovado</p>
+  <ng-template #reprovado>
+    <p>Candidato Reprovado</p>
+  </ng-template>
+  <button>Deletar</button>
+  <button>Aprovar</button>
+</div>

@@ -1,0 +1,54 @@
+:host {
+    display: block;
+}
+
+div {
+    background: #1e293b;
+    padding: 15px;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.2s;
+}
+
+div:hover {
+    transform: translateY(-3px);
+}
+
+
+h4 {
+    margin: 0 0 10px 0;
+    color: #f1f5f9;
+}
+
+p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: wheat;
+}
+
+button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:first-of-type {
+    background: #ef4444;
+    color: white;
+}
+
+button:last-of-type {
+    background: #22c55e;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
