@@ -42,12 +42,6 @@ Construir este projeto "modo raiz" me permitiu dominar conceitos que são a base
 
 ---
 
-## 📸 Demonstração
-> **[SUGESTÃO: Adicione aqui um GIF do sistema funcionando ou um screenshot da tela principal]**
-> *Dica: Use ferramentas como ScreenToGif para gravar o fluxo de cadastrar, aprovar e filtrar.*
-
----
-
 ## ⚙️ Instalação e Uso
 
 1. **Clonar o repositório:**
