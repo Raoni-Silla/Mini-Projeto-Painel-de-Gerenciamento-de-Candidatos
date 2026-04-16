@@ -55,7 +55,7 @@ Para a construção deste projeto "Modo Raiz", foram explorados:
 Angular CLI: 8.3.29
 Node: 12.22.12
 OS: linux x64
-RxJS: 6.4.0
+RxJS: 6.4.06
 ```
 
 ---

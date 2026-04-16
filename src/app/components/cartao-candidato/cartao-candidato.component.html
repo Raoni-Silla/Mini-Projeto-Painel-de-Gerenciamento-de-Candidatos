@@ -4,6 +4,39 @@
   <ng-template #reprovado>
     <p>Candidato Reprovado</p>
   </ng-template>
-  <button>Deletar</button>
-  <button>Aprovar</button>
+  <button (click)="deletarCandidato()">Deletar</button>
+  <button (click)="aprovarCandidato()">Aprovar</button>
+  <button (click)="reprovarCandidato()">Reprovar</button>
+  <button (click)="abrirModal()">Editar Nome</button>
+</div>
+<div class="modal-shadow" *ngIf="exibirModal">
+  <div class="modal-card">
+    <h3>Editar Nome</h3>
+
+    <input
+      type="text"
+      [(ngModel)]="nomeCandidato"
+      placeholder="Digite o nome..."
+    />
+
+    <div class="divError">
+      <p *ngIf="nomeCandidato.trim().length === 0">
+        Por favor preencha o nome do candidato
+      </p>
+
+      <p
+        *ngIf="
+          nomeCandidato.trim().length > 0 &&
+          nomeCandidato.trim().length < 3
+        "
+      >
+        Precisa ter ao menos 3 letras
+      </p>
+    </div>
+
+    <div class="acoes">
+      <button (click)="fecharModal()">Cancelar</button>
+      <button (click)="confirmarAcao()">Salvar</button>
+    </div>
+  </div>
 </div>

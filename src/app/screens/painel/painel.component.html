@@ -1,13 +1,46 @@
 <div class="formulario">
-    <input [(ngModel)]="nomeNovoCandidato" placeholder="Insira Seu Nome">
+  <div class="divInput">
+    <input [(ngModel)]="nomeNovoCandidato" placeholder="Insira Seu Nome" />
     <button (click)="adicionarCandidato()">Adicionar</button>
+  </div>
+  <div class="divError">
+    <p *ngIf="nomeNovoCandidato.trim().length === 0">
+      Por favor preencha o nome do candidato
+    </p>
+
+    <p
+      *ngIf="
+        nomeNovoCandidato.trim().length > 0 &&
+        nomeNovoCandidato.trim().length < 3
+      "
+    >
+      Precisa ter ao menos 3 letras
+    </p>
+
+    <p *ngIf="isDuplicado">
+        Não aceitamos nomes duplicados
+    </p>
+  </div>
 </div>
 
-<div *ngFor="let candidato of candidatos">
-    <app-cartao-candidato [candidato]="candidato"></app-cartao-candidato>
+<div class="toast-success" *ngIf="exibirNotificacao">
+  <span>Candidato excluído com sucesso!</span>
 </div>
+
+<div class="filtros">
+    <button (click)="filtrarAprovados()">Ordenar a lista por aprovados</button>
+    <button (click)="filtrarReprovados()">Ordenar a lista por reprovados</button>
+    <button (click)="filtrarTodos()">Ver Todos</button>
+</div>
+
+<div *ngFor="let candidato of candidatosFiltrados()">
+  <app-cartao-candidato [candidato]="candidato" (deletar)="excluirCandidato($event)" (aprovar)="aprovarCandidato($event)" (reprovar)="reprovarCandidato($event)"  (editar)="editarNomeCandidato($event)"></app-cartao-candidato>
+</div>
+
+
+
 
 <div *ngIf="!candidatos.length" class="divVazia">
-    <h2>A lista está vazia</h2>
-    <p>Por favor, adicione candidatos a lista</p>
+  <h2>A lista está vazia</h2>
+  <p>Por favor, adicione candidatos a lista</p>
 </div>

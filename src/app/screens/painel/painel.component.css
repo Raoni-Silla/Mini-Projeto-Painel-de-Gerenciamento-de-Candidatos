@@ -1,70 +1,187 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0f172a; /* azul escuro */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #020617;
+    color: #f1f5f9;
     margin: 0;
-    padding: 20px;
-    color: #e2e8f0;
+    padding: 40px 20px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
 }
 
 .formulario {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto 48px auto;
+}
+
+.divInput {
     display: flex;
     gap: 10px;
-    align-items: center;
+    background: #0f172a;
+    padding: 8px;
+    border-radius: 16px;
+    border: 1px solid #1e293b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.formulario input {
+.divInput input {
     flex: 1;
-    margin: 10px;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.divInput input:focus {
     background: #1e293b;
-    color: #fff;
-    font-size: 14px;
 }
 
-.formulario input::placeholder {
-    color: #94a3b8;
-}
-
-.formulario button {
-    padding: 12px 18px;
-    height: 2.8rem;
-    margin-right: 1rem;
-    width: auto;
-    border-radius: 12px;
+.divInput button {
+    padding: 12px 28px;
+    border-radius: 10px;
     border: none;
-    background: #3b82f6;
-    color: white;
-    font-weight: 600;
+    background: #38bdf8;
+    color: #020617;
+    font-weight: 700;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: 0.2s;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
 }
 
-.formulario button:hover {
-    background: #2563eb;
+.divInput button:hover {
+    background: #7dd3fc;
+    transform: translateY(-1px);
+}
+
+.divError {
+    margin-top: 8px;
+    min-height: 20px;
+}
+
+.divError p {
+    margin: 0;
+    color: #fb7185;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.divError p::before {
+    content: '⚠️';
+    font-size: 0.75rem;
 }
 
 app-cartao-candidato {
-    display: block;
-    margin-bottom: 15px;
+    max-width: 616px;
+    margin: 0 auto 16px auto;
 }
 
-div[ng-reflect-ng-if="false"] + div {
+.divVazia {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 60px 20px;
     text-align: center;
-    margin-top: 40px;
-    opacity: 0.8;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 24px;
+    border: 2px dashed #1e293b;
 }
 
-.divVazia{
-    padding: 2rem;
+.divVazia h2 {
+    font-size: 1.5rem;
+    color: #f8fafc;
 }
 
-h2 {
-    color: #ffffff;
-    margin-bottom: 0;
+.divVazia p {
+    color: #64748b;
+    font-size: 1rem;
 }
 
-p {
-    color: wheat;
+.toast-success {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ef4444;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 🔥 FILTROS (AGORA SIM DO JEITO CERTO) */
+
+.filtros {
+    max-width: 600px;
+    width: 100%;
+    margin: 20px auto 40px auto;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    backdrop-filter: blur(6px);
+}
+
+.filtros button {
+    position: relative;
+    padding: 12px 18px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    background: linear-gradient(145deg, #0f172a, #0b1220);
+    color: #94a3b8;
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: all 0.25s ease;
+    overflow: hidden;
+}
+
+.filtros button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.filtros button:hover {
+    transform: translateY(-3px);
+    color: #f8fafc;
+    border-color: #38bdf8;
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+}
+
+.filtros button:hover::before {
+    opacity: 1;
+}
+
+.filtros button:active {
+    transform: scale(0.97);
 }
